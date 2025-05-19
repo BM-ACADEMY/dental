@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const API_URL = 'http://localhost:5000'; // Update for production
+const API_URL = process.env.REACT_APP_API_URL; // Update for production
 
 const AppointmentModal = ({ open, onClose }) => {
   const [formData, setFormData] = useState({
