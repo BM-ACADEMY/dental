@@ -47,13 +47,22 @@ const Aboutsection = () => {
               </h1>
 
               <p
-                className="mt-6 text-gray-300 text-lg font-outfit"
+                className="mt-6 text-gray-300 text-lg font-outfit text-justify"
                 data-aos="fade-right"
                 data-aos-delay="200"
               >
-                At <span className="gnr-gold-text font-medium">Hridhayam Dentistry</span>, we are committed to
-                providing exceptional dental care in a welcoming environment. As one of the best dental clinics in
-                Coimbatore, we offer a comprehensive range of services.
+                We <span className="gnr-gold-text font-medium">GNR Dentistry</span>, Achieve a Confident Smile With
+                  Us'. It is a <span className="gnr-gold-text font-medium">Multispecialty Dental Clinic</span>, we are
+                  dedicated to providing excellent dental care in a warm
+                  welcoming environment. A place where dentists and
+                  other dental professionals provide oral health care. Our
+                  Mission is to deliver personalized patient dental care
+                  that exceeds your expectations. We believe everyone
+                  deserve a healthy and beautiful smile, and we are
+                  committed to helping you achieve it. Our Service: 1 .
+                  Cleanings, Fillings, Extractions ( General Dentistry) 2.
+                  Cosmetic Dentistry. 3. Tooth Replacement 4. Pediatric
+                  Dentistry.
               </p>
 
               <div

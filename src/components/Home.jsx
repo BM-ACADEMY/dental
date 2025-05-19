@@ -32,8 +32,8 @@ export default function HomeSection() {
           className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-quicksand mb-4 sm:mb-6 leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] break-words hyphens-auto"
           data-aos="fade-up"
         >
-          Let Your <span className="gnr-gold-text">Smile Shine</span> with{" "}
-          <span className="gnr-gold-text">Confidence</span>
+          Achieve a <span className="gnr-gold-text">confident smile</span> with{" "}
+          us
         </h1>
 
         <p

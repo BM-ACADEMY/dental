@@ -5,7 +5,7 @@ import {
   FaEnvelope,
   FaInstagram
 } from 'react-icons/fa';
-import Footerlogo from '../assets/logo.jpg';
+import Footerlogo from '../assets/logo.png';
 
 const Footer = () => {
   const [openTerms, setOpenTerms] = useState(false);
@@ -31,7 +31,7 @@ const Footer = () => {
               <img src={Footerlogo} alt="Footer Logo" className="h-16 w-40" />
             </div>
             <p className="text-white text-sm text-justify">
-              GNR Dentistry blends expertise and compassion to create healthy, confident smiles with advanced, personalized care.
+              GNR Dentistry – Your Trusted Multispecialty Dental Clinic for Healthy, Confident Smiles.
             </p>
           </div>
 
@@ -55,6 +55,24 @@ const Footer = () => {
                   onClick={(e) => handleSmoothScroll(e, 'about')}
                 >
                   About
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  className="text-white hover:text-white transition"
+                  onClick={(e) => handleSmoothScroll(e, 'services')}
+                >
+                  Services
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#appointment"
+                  className="text-white hover:text-white transition"
+                  onClick={(e) => handleSmoothScroll(e, 'appointment')}
+                >
+                  Appointment
                 </a>
               </li>
             </ul>

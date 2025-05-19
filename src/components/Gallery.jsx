@@ -6,7 +6,6 @@ import 'lightgallery/css/lg-thumbnail.css';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import AOS from 'aos';
 import 'aos/dist/aos.css';  // Import AOS styles
 
@@ -49,24 +48,21 @@ const Gallery = () => {
 
     // Initialize AOS (Animate on Scroll)
     AOS.init({
-      duration: 1000, // Duration of the animation
-      easing: 'ease-in-out', // Easing function
-      once: true, // Animation will trigger only once
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true,
     });
-
   }, [currentPage]);
 
   const handlePageChange = (event, page) => {
     setCurrentPage(page);
   };
 
- 
-
   return (
     <div className="bg-gradient-to-b from-gray-900 to-black">
-        <Box sx={{ maxWidth: 1200, mx: 'auto', p: 3 }} ref={topRef}>
-      <div className="text-center pt-10 mb-16" data-aos="fade-up">
-        <div className="mb-6" data-aos="fade-right">
+      <Box sx={{ maxWidth: 1200, mx: 'auto', p: 3 }} ref={topRef}>
+        <div className="text-center pt-10 mb-16" data-aos="fade-up">
+          <div className="mb-6" data-aos="fade-right">
             <span className="inline-block gnr-gold-text text-3xl font-semibold font-dancing tracking-wider">
               Gallery
             </span>
@@ -78,70 +74,82 @@ const Gallery = () => {
           >
             <span className="gnr-gold-text">Guide You</span> to the Best Dental Care.
           </h2>
-      </div>
+        </div>
 
-      <Box
-        ref={galleryContainer}
-        sx={{
-          display: 'grid',
-          gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' },
-          gap: 3,
-          mb: 4
-        }}
-      >
-        {currentImages.map((src, index) => (
-          <a
-            key={index}
-            href={src}
-            className="gallery-item"
-            data-lg-size="800-600"
-            data-aos="fade-up"  // AOS animation for fade-up
-            style={{
-              display: 'block',
-              overflow: 'hidden',
-              borderRadius: 8,
-              boxShadow: 3,
-              transition: 'box-shadow 0.3s ease',
-            }}
-          >
-            <Box
-              component="img"
-              src={src}
-              alt={`Gallery image ${startIndex + index + 1}`}
-              sx={{
-                width: '100%',
-                height: 240,
-                objectFit: 'cover',
-                transition: 'transform 0.3s ease',
-                '&:hover': {
-                  transform: 'scale(1.05)'
-                }
-              }}
-            />
-          </a>
-        ))}
-      </Box>
-
-      <Stack spacing={2} alignItems="center" className="mb-10">
-        <Pagination
-          count={totalPages}
-          page={currentPage}
-          onChange={handlePageChange}
-          color="error"
-          size="large"
+        <Box
+          ref={galleryContainer}
           sx={{
-            '& .MuiPaginationItem-root': {
-              fontSize: '1rem',
-            },
-            '& .Mui-selected': {
-              fontWeight: 'bold',
-            }
+            display: 'grid',
+            gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' },
+            gap: 3,
+            mb: 4,
           }}
-        />
-      </Stack>
-    </Box>
+        >
+          {currentImages.map((src, index) => (
+            <a
+              key={index}
+              href={src}
+              className="gallery-item"
+              data-lg-size="800-600"
+              data-aos="fade-up"
+              style={{
+                display: 'block',
+                overflow: 'hidden',
+                borderRadius: 8,
+                boxShadow: 3,
+                transition: 'box-shadow 0.3s ease',
+              }}
+            >
+              <Box
+                component="img"
+                src={src}
+                alt={`Gallery image ${startIndex + index + 1}`}
+                sx={{
+                  width: '100%',
+                  height: 240,
+                  objectFit: 'cover',
+                  transition: 'transform 0.3s ease',
+                  '&:hover': {
+                    transform: 'scale(1.05)',
+                  },
+                }}
+              />
+            </a>
+          ))}
+        </Box>
+
+       <Stack spacing={2} alignItems="center" className="mb-10">
+  <Pagination
+    count={totalPages}
+    page={currentPage}
+    onChange={handlePageChange}
+    size="large"
+    sx={{
+      '& .MuiPaginationItem-root': {
+        fontSize: '1rem',
+        color: '#f0d585', // Default text color
+        border: '1px solid transparent',
+        transition: 'all 0.3s ease',
+        '&:hover': {
+          backgroundColor: '#b5852a22', // Light gold on hover
+          borderColor: '#f0d585',
+        },
+      },
+      '& .Mui-selected': {
+        backgroundColor: '#b5852a !important',
+        color: 'white !important',
+        fontWeight: 'bold',
+        borderColor: '#d6b56c',
+        '&:hover': {
+          backgroundColor: '#d6b56c !important',
+        },
+      },
+    }}
+  />
+</Stack>
+
+      </Box>
     </div>
-    
   );
 };
 
