@@ -13,7 +13,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="bg-gradient-to-b from-gray-900 to-black flex items-center justify-center py-12 relative">
+    <section className="bg-gradient-to-b from-gray-900 to-black flex items-center justify-center py-12 relative overflow-x-hidden">
       <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between">
         {/* Left Side: Content */}
         <div className="lg:w-1/2 space-y-6 text-center sm:text-center md:text-left">
@@ -56,14 +56,14 @@ const HeroSection = () => {
           <img
             src={Doctor}
             alt="Dentist"
-            className="object-cover rounded-lg"
+            className="object-cover rounded-lg max-w-full h-auto"
             data-aos="fade-left"
             data-aos-delay="200"
           />
 
           {/* Opening Hours Card */}
           <div
-            className="absolute top-1/3 right-0 bg-blue-900 text-white p-4 rounded-lg shadow-lg flex items-center space-x-3"
+            className="absolute top-1/3 right-4 bg-blue-900 text-white p-4 rounded-lg shadow-lg flex items-center space-x-3"
             data-aos="zoom-in"
             data-aos-delay="400"
             data-aos-anchor-placement="top"
@@ -79,7 +79,7 @@ const HeroSection = () => {
 
           {/* Need Dental Services Card */}
           <div
-            className="absolute bottom-5 left-0 bg-white text-gray-800 p-4 rounded-lg shadow-lg flex items-center space-x-3"
+            className="absolute bottom-5 left-4 bg-white text-gray-800 p-4 rounded-lg shadow-lg flex items-center space-x-3"
             data-aos="zoom-in"
             data-aos-delay="500"
             data-aos-anchor-placement="top"

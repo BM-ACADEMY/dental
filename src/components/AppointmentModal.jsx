@@ -6,8 +6,7 @@ import Box from '@mui/material/Box';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-// API URL: Set in .env as REACT_APP_API_URL or update here for production
-const API_URL = 'http://localhost:5000'; // Fallback for development; update to https://your-backend.com in production
+const API_URL = 'http://localhost:5000'; // Update for production
 
 const AppointmentModal = ({ open, onClose }) => {
   const [formData, setFormData] = useState({
@@ -24,24 +23,25 @@ const AppointmentModal = ({ open, onClose }) => {
   });
   const [loading, setLoading] = useState(false);
 
-  const validateField = (name, value) => {
-    switch (name) {
-      case 'name':
-        return value.trim() ? '' : 'Name is required';
-      case 'email':
-        return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value)
-          ? ''
-          : 'Invalid email format';
-      case 'phone':
-        return /^\+91\d{10}$/.test(value)
-          ? ''
-          : 'Phone must be +91 followed by 10 digits';
-      case 'message':
-        return value.trim() ? '' : 'Message is required';
-      default:
-        return '';
-    }
-  };
+ const validateField = (name, value) => {
+  switch (name) {
+    case 'name':
+      return value.trim() ? '' : 'Name is required';
+    case 'email':
+      return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value)
+        ? ''
+        : 'Invalid email format';
+    case 'phone':
+      return /^\d{10}$/.test(value)
+        ? ''
+        : 'Phone number must be 10 digits';
+    case 'message':
+      return value.trim() ? '' : 'Message is required';
+    default:
+      return '';
+  }
+};
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -64,15 +64,7 @@ const AppointmentModal = ({ open, onClose }) => {
     e.preventDefault();
 
     if (!validateForm()) {
-      toast.error('Please fix the errors in the form.', {
-        position: 'top-right',
-        autoClose: 6000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        theme: 'dark',
-      });
+      toast.error('Please fix the errors in the form.');
       return;
     }
 
@@ -87,50 +79,34 @@ const AppointmentModal = ({ open, onClose }) => {
           email: formData.email,
           contactNumber: formData.phone,
           message: formData.message.trim(),
-          companyName: '', // Optional field, not used in form
+          companyName: '',
         }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        toast.success('Appointment request sent successfully!', {
-          position: 'top-right',
-          autoClose: 6000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          theme: 'dark',
-        });
+        toast.success('Appointment request sent successfully!');
         setFormData({ name: '', email: '', phone: '', message: '' });
         setErrors({ name: '', email: '', phone: '', message: '' });
         onClose();
       } else {
-        toast.error(data.message || 'Failed to send appointment request.', {
-          position: 'top-right',
-          autoClose: 6000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          theme: 'dark',
-        });
+        toast.error(data.message || 'Failed to send appointment request.');
       }
     } catch (error) {
       console.error('Submission Error:', error);
-      toast.error('An error occurred. Please try again later.', {
-        position: 'top-right',
-        autoClose: 6000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        theme: 'dark',
-      });
+      toast.error('An error occurred. Please try again later.');
     } finally {
       setLoading(false);
     }
+  };
+
+  const autofillStyle = {
+    '& input:-webkit-autofill': {
+      WebkitBoxShadow: '0 0 0 1000px transparent inset',
+      WebkitTextFillColor: '#fff',
+      transition: 'background-color 5000s ease-in-out 0s',
+    },
   };
 
   return (
@@ -164,6 +140,7 @@ const AppointmentModal = ({ open, onClose }) => {
             Book an Appointment
           </h2>
           <form onSubmit={handleSubmit} className="space-y-4">
+            {/* Name Field */}
             <TextField
               fullWidth
               label="Name"
@@ -179,6 +156,7 @@ const AppointmentModal = ({ open, onClose }) => {
               InputProps={{
                 style: { color: '#fff' },
                 sx: {
+                  ...autofillStyle,
                   '& .MuiOutlinedInput-notchedOutline': {
                     borderColor: errors.name ? '#f44336' : '#fff',
                   },
@@ -190,8 +168,9 @@ const AppointmentModal = ({ open, onClose }) => {
                   },
                 },
               }}
-              aria-describedby="name-error"
             />
+
+            {/* Email Field */}
             <TextField
               fullWidth
               label="Email"
@@ -208,6 +187,7 @@ const AppointmentModal = ({ open, onClose }) => {
               InputProps={{
                 style: { color: '#fff' },
                 sx: {
+                  ...autofillStyle,
                   '& .MuiOutlinedInput-notchedOutline': {
                     borderColor: errors.email ? '#f44336' : '#fff',
                   },
@@ -219,8 +199,9 @@ const AppointmentModal = ({ open, onClose }) => {
                   },
                 },
               }}
-              aria-describedby="email-error"
             />
+
+            {/* Phone Field */}
             <TextField
               fullWidth
               label="Phone"
@@ -237,6 +218,7 @@ const AppointmentModal = ({ open, onClose }) => {
               InputProps={{
                 style: { color: '#fff' },
                 sx: {
+                  ...autofillStyle,
                   '& .MuiOutlinedInput-notchedOutline': {
                     borderColor: errors.phone ? '#f44336' : '#fff',
                   },
@@ -248,8 +230,9 @@ const AppointmentModal = ({ open, onClose }) => {
                   },
                 },
               }}
-              aria-describedby="phone-error"
             />
+
+            {/* Message Field */}
             <TextField
               fullWidth
               label="Message"
@@ -267,6 +250,7 @@ const AppointmentModal = ({ open, onClose }) => {
               InputProps={{
                 style: { color: '#fff' },
                 sx: {
+                  ...autofillStyle,
                   '& .MuiOutlinedInput-notchedOutline': {
                     borderColor: errors.message ? '#f44336' : '#fff',
                   },
@@ -278,8 +262,8 @@ const AppointmentModal = ({ open, onClose }) => {
                   },
                 },
               }}
-              aria-describedby="message-error"
             />
+
             <Button
               type="submit"
               variant="contained"
@@ -298,17 +282,14 @@ const AppointmentModal = ({ open, onClose }) => {
                   cursor: 'not-allowed',
                 },
               }}
-              className="gnr-gold-border"
             >
               {loading ? 'Submitting...' : 'Submit'}
             </Button>
           </form>
         </Box>
       </Modal>
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-      />
+
+      <ToastContainer position="top-right" autoClose={3000} />
     </>
   );
 };

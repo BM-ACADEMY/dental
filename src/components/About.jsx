@@ -14,40 +14,47 @@ const Aboutsection = () => {
   }, []);
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black" id='about'>
+    <section
+      className="py-16 px-4 sm:px-6 lg:px-8 bg-black overflow-x-hidden"
+      id="about"
+    >
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-center">
+          {/* Left Content */}
           <div className="md:w-1/2 md:pr-12 mb-10 md:mb-0">
             <div className="relative">
               <div className="mb-6" data-aos="fade-right">
-                <span className="inline-block gnr-gold-text text-3xl font-semiboldn font-dancing tracking-wider">
+                <span className="inline-block gnr-gold-text text-3xl font-semibold font-dancing tracking-wider">
                   About Us
                 </span>
               </div>
-              
-              <h1 
+
+              <h1
                 className="text-5xl font-semibold leading-tight text-white font-outfit relative z-10"
                 data-aos="fade-right"
                 data-aos-delay="100"
               >
-                <span className="gnr-gold-text">Crafting</span> Confident <br className="hidden sm:block"/>Smiles with Care
+                <span className="gnr-gold-text">Crafting</span> Confident <br className="hidden sm:block" />
+                Smiles with Care
               </h1>
 
-              <p 
+              <p
                 className="mt-6 text-gray-300 text-lg font-outfit"
                 data-aos="fade-right"
                 data-aos-delay="200"
               >
-                At <span className="gnr-gold-text font-medium">Hridhayam Dentistry</span>, we are committed to providing exceptional dental care in a welcoming environment. As one of the best dental clinics in Coimbatore, we offer a comprehensive range of services.
+                At <span className="gnr-gold-text font-medium">Hridhayam Dentistry</span>, we are committed to
+                providing exceptional dental care in a welcoming environment. As one of the best dental clinics in
+                Coimbatore, we offer a comprehensive range of services.
               </p>
 
-              <div 
+              <div
                 className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6"
                 data-aos="fade-up"
                 data-aos-delay="300"
               >
                 <div className="group">
-                  <div className="flex items-start gap-3">                    
+                  <div className="flex items-start gap-3">
                     <BadgeCheck className="w-6 h-6 text-[#debe73]" />
                     <div>
                       <h3 className="text-xl font-outfit text-white">Experienced Dentist</h3>
@@ -65,7 +72,7 @@ const Aboutsection = () => {
                 </div>
               </div>
 
-              <div 
+              <div
                 className="mt-8 flex flex-col sm:flex-row gap-4 font-outfit"
                 data-aos="fade-up"
                 data-aos-delay="400"
@@ -78,25 +85,26 @@ const Aboutsection = () => {
             </div>
           </div>
 
-          <div 
+          {/* Right Image Section */}
+          <div
             className="md:w-1/2 relative"
             data-aos="fade-left"
             data-aos-delay="300"
           >
             <div className="relative z-10 group">
-              <img 
-                src={About} 
-                alt="Dentist with patient" 
+              <img
+                src={About}
+                alt="Dentist with patient"
                 className="w-full h-auto rounded-xl transform transition duration-500"
               />
               <div className="absolute inset-0 via-transparent to-transparent rounded-xl pointer-events-none"></div>
             </div>
-            <div 
+            <div
               className="absolute -bottom-6 -right-1 w-32 h-32 bg-[#e6c66550] rounded-full z-0"
               data-aos="zoom-in"
               data-aos-delay="500"
             ></div>
-            <div 
+            <div
               className="absolute -top-6 left-10 w-24 h-24 bg-[#e6c66550] rounded-full z-0"
               data-aos="zoom-in"
               data-aos-delay="600"
