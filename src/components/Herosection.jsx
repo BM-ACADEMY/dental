@@ -1,33 +1,52 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Doctor from '../assets/doctor.webp';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const HeroSection = () => {
+  // Initialize AOS when component mounts
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true, // Animations will only happen once
+    });
+  }, []);
+
   return (
-    <section className="min-h-screen bg-blue-50 flex items-center justify-center py-12 relative">
+    <section className="bg-gradient-to-b from-gray-900 to-black flex items-center justify-center py-12 relative">
       <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between">
         {/* Left Side: Content */}
-        <div className="lg:w-1/2 space-y-6 text-center lg:text-left">
-          <span className="text-blue-600 text-lg font-semibold">Welcome to Dentia</span>
-          <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 leading-tight">
-            Transforming Smiles With Precision And Gentle Touch
-          </h1>
-          <p className="text-lg text-gray-600 max-w-md mx-auto lg:mx-0">
-            We offer high-quality dental care tailored for the whole family. From routine checkups to advanced treatments, our compassionate team ensures your smile stays healthy and confident.
+        <div className="lg:w-1/2 space-y-6 text-center sm:text-center md:text-left">
+          <div className="mb-6" data-aos="fade-right">
+            <span className="inline-block gnr-gold-text text-3xl font-semibold font-dancing tracking-wider">
+              Book an Appointment
+            </span>
+          </div>
+          <h2
+            className="text-5xl font-semibold leading-tight text-white font-outfit relative z-10"
+            data-aos="fade-right"
+            data-aos-delay="100"
+          >
+            <span className="gnr-gold-text">Let Us</span> Guide You to the Best Dental Care.
+          </h2>
+
+          <p
+            className="text-lg text-white font-outfit max-w-md mx-auto md:mx-0"
+            data-aos="fade-right"
+            data-aos-delay="200"
+          >
+            Simply give us a call and book an appointment for yourself. Share your dental concerns, and we'll guide you to the best treatment options.
           </p>
-          <button className="px-6 py-3 bg-blue-900 text-white font-semibold rounded-lg hover:bg-blue-800 transition-colors duration-300">
-            Book Appointment
-          </button>
-          <div className="flex items-center justify-center lg:justify-start space-x-2 mt-4">
-            <span className="text-gray-600">Google Rating</span>
-            <span className="text-gray-800 font-semibold">5.0</span>
-            <div className="flex space-x-1 text-yellow-400">
-              {[...Array(5)].map((_, i) => (
-                <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                </svg>
-              ))}
-            </div>
-            <span className="text-gray-600">Based on 23K Reviews</span>
+
+          <div
+            className="mt-8 flex flex-col sm:flex-row gap-4 font-outfit"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <button className="relative border-2 gnr-gold-border bg-gradient-to-r from-amber-900/20 to-amber-800/20 !text-white font-semibold py-3 px-8 rounded-lg transition-all duration-500 transform hover:bg-amber-500/30 shadow-md hover:shadow-amber-500/40 animate-pulse-slow overflow-hidden group">
+              <span className="absolute inset-0 bg-gradient-to-r from-amber-500/0 via-amber-500/20 to-amber-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></span>
+              <span className="relative z-10">Book an Appointment</span>
+            </button>
           </div>
         </div>
 
@@ -38,27 +57,39 @@ const HeroSection = () => {
             src={Doctor}
             alt="Dentist"
             className="object-cover rounded-lg"
+            data-aos="fade-left"
+            data-aos-delay="200"
           />
 
           {/* Opening Hours Card */}
-          <div className="absolute top-1/3 right-0 bg-blue-900 text-white p-4 rounded-lg shadow-lg flex items-center space-x-3">
+          <div
+            className="absolute top-1/3 right-0 bg-blue-900 text-white p-4 rounded-lg shadow-lg flex items-center space-x-3"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+            data-aos-anchor-placement="top"
+          >
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             <div>
               <h3 className="text-lg font-semibold">Opening Hours</h3>
-              <p className="text-sm">Mon to Sat: 08:00 – 20:00</p>
+              <p className="text-sm">Mon to Sat: 10:00 – 9:00</p>
             </div>
           </div>
 
           {/* Need Dental Services Card */}
-          <div className="absolute bottom-0 left-0 bg-white text-gray-800 p-4 rounded-lg shadow-lg flex items-center space-x-3">
+          <div
+            className="absolute bottom-5 left-0 bg-white text-gray-800 p-4 rounded-lg shadow-lg flex items-center space-x-3"
+            data-aos="zoom-in"
+            data-aos-delay="500"
+            data-aos-anchor-placement="top"
+          >
             <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
             <div>
               <h3 className="text-lg font-semibold">Need Dental Services?</h3>
-              <p className="text-sm">Call: +1123 456 789</p>
+              <p className="text-sm">Call: +91 8097225401</p>
             </div>
           </div>
         </div>
