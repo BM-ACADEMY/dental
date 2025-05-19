@@ -64,7 +64,7 @@ const Service = () => {
   ];
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-gray-900">
+    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-gray-900" id='services'>
       <div className="max-w-7xl mx-auto">
         {/* Header section with animations */}
         <div className="text-center mb-16" data-aos="fade-down">

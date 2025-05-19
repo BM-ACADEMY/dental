@@ -1,23 +1,31 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import About from '../assets/about.png';
 import { BadgeCheck, MapPin } from 'lucide-react';
 import AOS from 'aos';
-import 'aos/dist/aos.css'; // AOS styles
+import 'aos/dist/aos.css';
+import AppointmentModal from './AppointmentModal'; // Adjust the path as needed
 
 const Aboutsection = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   // Initialize AOS when component mounts
   useEffect(() => {
     AOS.init({
       duration: 800,
-      once: true, // Animations will only happen once
+      once: true,
     });
   }, []);
 
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
-    <section
-      className="py-16 px-4 sm:px-6 lg:px-8 bg-black overflow-x-hidden"
-      id="about"
-    >
+    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black overflow-x-hidden" id="about">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-center">
           {/* Left Content */}
@@ -77,7 +85,10 @@ const Aboutsection = () => {
                 data-aos="fade-up"
                 data-aos-delay="400"
               >
-                <button className="relative border-2 gnr-gold-border bg-gradient-to-r from-amber-900/20 to-amber-800/20 !text-white font-semibold py-3 px-8 rounded-lg transition-all duration-500 transform hover:bg-amber-500/30 shadow-md hover:shadow-amber-500/40 animate-pulse-slow overflow-hidden group">
+                <button 
+                  onClick={openModal}
+                  className="relative border-2 gnr-gold-border bg-gradient-to-r from-amber-900/20 to-amber-800/20 !text-white font-semibold py-3 px-8 rounded-lg transition-all duration-500 transform hover:bg-amber-500/30 shadow-md hover:shadow-amber-500/40 animate-pulse-slow overflow-hidden group"
+                >
                   <span className="absolute inset-0 bg-gradient-to-r from-amber-500/0 via-amber-500/20 to-amber-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></span>
                   <span className="relative z-10">Book an Appointment</span>
                 </button>
@@ -112,6 +123,9 @@ const Aboutsection = () => {
           </div>
         </div>
       </div>
+
+      {/* Appointment Modal */}
+      <AppointmentModal open={isModalOpen} onClose={closeModal} />
     </section>
   );
 };

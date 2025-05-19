@@ -1,16 +1,27 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Doctor from '../assets/doctor.webp';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import AppointmentModal from './AppointmentModal'; // Import your modal component
 
 const HeroSection = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
   // Initialize AOS when component mounts
   useEffect(() => {
     AOS.init({
       duration: 800,
-      once: true, // Animations will only happen once
+      once: true,
     });
   }, []);
+
+  const handleOpenModal = () => {
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
 
   return (
     <section className="bg-gradient-to-b from-gray-900 to-black flex items-center justify-center py-12 relative overflow-x-hidden">
@@ -43,7 +54,10 @@ const HeroSection = () => {
             data-aos="fade-up"
             data-aos-delay="300"
           >
-            <button className="relative border-2 gnr-gold-border bg-gradient-to-r from-amber-900/20 to-amber-800/20 !text-white font-semibold py-3 px-8 rounded-lg transition-all duration-500 transform hover:bg-amber-500/30 shadow-md hover:shadow-amber-500/40 animate-pulse-slow overflow-hidden group">
+            <button 
+              onClick={handleOpenModal}
+              className="relative border-2 gnr-gold-border bg-gradient-to-r from-amber-900/20 to-amber-800/20 !text-white font-semibold py-3 px-8 rounded-lg transition-all duration-500 transform hover:bg-amber-500/30 shadow-md hover:shadow-amber-500/40 animate-pulse-slow overflow-hidden group"
+            >
               <span className="absolute inset-0 bg-gradient-to-r from-amber-500/0 via-amber-500/20 to-amber-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></span>
               <span className="relative z-10">Book an Appointment</span>
             </button>
@@ -94,6 +108,9 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Render the Appointment Modal */}
+      <AppointmentModal open={modalOpen} onClose={handleCloseModal} />
     </section>
   );
 };
