@@ -13,9 +13,16 @@ const Footer = () => {
   const handleOpenTerms = () => setOpenTerms(true);
   const handleCloseTerms = () => setOpenTerms(false);
 
+  const handleSmoothScroll = (e, targetId) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <footer className="relative py-12 px-4 bg-black" id="contact">
-
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Column 1: Logo & Content */}
@@ -24,8 +31,7 @@ const Footer = () => {
               <img src={Footerlogo} alt="Footer Logo" className="h-16 w-40" />
             </div>
             <p className="text-white text-sm text-justify">
-             GNR Dentistry blends expertise and compassion to create healthy, confident smiles with advanced, personalized care.
-
+              GNR Dentistry blends expertise and compassion to create healthy, confident smiles with advanced, personalized care.
             </p>
           </div>
 
@@ -33,17 +39,31 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold gnr-gold-text mb-4 font-quicksand">USEFUL LINKS</h3>
             <ul className="space-y-2">
-              <li><a href="#home" className="text-white hover:text-white transition">Home</a></li>
-              <li><a href="#about" className="text-white hover:text-white transition">About</a></li>
-          </ul>
+              <li>
+                <a
+                  href="#home"
+                  className="text-white hover:text-white transition"
+                  onClick={(e) => handleSmoothScroll(e, 'home')}
+                >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#about"
+                  className="text-white hover:text-white transition"
+                  onClick={(e) => handleSmoothScroll(e, 'about')}
+                >
+                  About
+                </a>
+              </li>
+            </ul>
           </div>
 
           {/* Column 3: Contact Info */}
           <div>
             <h3 className="text-lg font-bold gnr-gold-text mb-4 font-quicksand">CONTACT</h3>
             <address className="not-italic space-y-4">
-             
-
               {/* Mannarkudi Branch */}
               <div className="space-y-2">
                 <div className="flex items-start">
@@ -74,7 +94,6 @@ const Footer = () => {
             </div>
           </div>
         </div>
-
 
         {/* Bottom Copyright and Terms */}
         <div className="mt-12 pt-6 border-t border-gray-400 flex flex-col md:flex-row justify-between items-center">

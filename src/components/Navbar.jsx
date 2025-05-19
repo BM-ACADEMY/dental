@@ -22,7 +22,6 @@ const Navbar = () => {
     { name: 'Home', id: 'home' },
     { name: 'About Us', id: 'about' },
     { name: 'Services', id: 'services' },
-    { name: 'Reviews', id: 'reviews' },
     { name: 'Contact', id: 'contact' },
     { name: 'Appointment', id: 'appointment' }, // New Appointment link
   ];
