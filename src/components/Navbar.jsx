@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import Logo from '../assets/logo.jpg';
-import AppointmentModal from './Modal'; // Import the new Modal component
+import AppointmentModal from './AppointmentModal'; // Import the new Modal component
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
