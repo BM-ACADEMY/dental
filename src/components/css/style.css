@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Antic+Didone&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap');
+:root{
+  --font1:"Josefin Slab", serif;
+  --font2:"Antic Didone", serif;
+
+}
+.carousel-text {
+    font-weight: 400;
+    color: white;
+    font-family: var(--font2);
+    text-align: center;
+  }
+
+  .slide-btn{
+    background-color: #854e28;
+    border: 1px solid rgba(255, 255, 255, 0.178);
+  }
+  
+  /* Adjust font size for smaller screens */
+  @media (max-width: 640px) {
+    .carousel-text {
+      font-size: 1.25rem; /* Smaller font size for mobile */
+    }
+  }
+  
+  /* Adjust font size for medium screens */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .carousel-text {
+      font-size: 1.75rem; /* Medium font size for tablets */
+    }
+  }
+  
+  /* Adjust font size for larger screens */
+  @media (min-width: 1025px) {
+    .carousel-text {
+      font-size: 2.25rem; /* Larger font size for desktops */
+    }
+  }
+
+
+  /* Ensure images cover the carousel container */
+.carousel .slide img {
+    object-fit: cover; /* Ensures the image covers the container */
+    object-position: bottom;
+    width: 100%;
+  }
+
+  /* Remove the default background of next & prev buttons */
+.carousel .control-prev,
+.carousel .control-next {
+  background: transparent !important; /* Make background transparent */
+  border: none !important; /* Remove any border */
+}
+
+/* Remove hover effect */
+.carousel .control-prev:hover,
+.carousel .control-next:hover {
+  background: transparent !important; /* Ensure hover doesn't add background */
+  box-shadow: none !important; /* Remove any shadows */
+}
+@media (max-width: 768px){
+  .carousel .slide img {
+    height: 500px !important; /* Adjust for portrait mode */
+  }
+}
