@@ -66,15 +66,6 @@ const Footer = () => {
                   Services
                 </a>
               </li>
-              <li>
-                <a
-                  href="#appointment"
-                  className="text-white hover:text-white transition"
-                  onClick={(e) => handleSmoothScroll(e, 'appointment')}
-                >
-                  Appointment
-                </a>
-              </li>
             </ul>
           </div>
 
