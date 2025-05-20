@@ -87,7 +87,8 @@ const HeroSection = () => {
             </svg>
             <div>
               <h3 className="text-lg font-semibold">Opening Hours</h3>
-              <p className="text-sm">Mon to Sat: 10:00 – 9:00</p>
+              <p className="text-sm">Mon to Sat: 10am – 9pm</p>
+              <p className="text-sm">Sun: 11am – 8pm</p>
             </div>
           </div>
 
@@ -103,7 +104,7 @@ const HeroSection = () => {
             </svg>
             <div>
               <h3 className="text-lg font-semibold">Need Dental Services?</h3>
-              <p className="text-sm">Call: +91 8097225401</p>
+              <p className="text-sm">Call: +91 8072225401</p>
             </div>
           </div>
         </div>
