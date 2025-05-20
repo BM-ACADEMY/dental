@@ -10,6 +10,7 @@ import Navbar from './components/Navbar';
 import Review from './components/Review';
 import Service from './components/Service';
 import AppointmentModal from './components/AppointmentModal'; // Adjust path as needed
+import Facilities from './components/Facilities';
 
 export default function App() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -26,6 +27,7 @@ export default function App() {
       <Herosection />
       <Review />
       <Gallery />
+      <Facilities/>
       <Footer />
       <AppointmentModal open={modalOpen} onClose={handleCloseModal} />
       <ToastContainer

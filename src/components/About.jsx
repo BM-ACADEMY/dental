@@ -44,8 +44,8 @@ const Aboutsection = () => {
                 data-aos="fade-up"
                 data-aos-delay="200"
               >
-                <span className="gnr-gold-text">Crafting</span> Confident <br className="hidden sm:block" />
-                Smiles with Care
+                <span className="gnr-gold-text">Creating</span> Bright <br className="hidden sm:block" />
+                Smiles with Heart
               </h1>
 
               <p
