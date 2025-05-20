@@ -97,7 +97,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold gnr-gold-text mb-4 font-quicksand">FOLLOW US</h3>
             <div className="flex space-x-4">
-              <a href="" target="_blank" className="text-white hover:text-white transition">
+              <a href="https://www.instagram.com/gnrdentistry?igsh=NGE1ZGdxMG8zaTV6" target="_blank" className="text-white hover:text-white transition">
                 <FaInstagram size={30} className="text-white" />
               </a>
             </div>
